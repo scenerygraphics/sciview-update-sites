@@ -30,9 +30,6 @@ esac
 
 echo "Found launcher: $launcher"
 
-# Install the sciview update site so we dont include unnecessary duplications
-./$launcher --update add-update-site sciview https://sites.imagej.net/SciView/
-
 # upload complete update site
 password=$WIKI_UPLOAD_PASS
 ./$launcher --update edit-update-site $update_site $url "webdav:$webdav_user:$password" .
