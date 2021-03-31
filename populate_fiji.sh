@@ -83,6 +83,7 @@ fi
 
 echo
 echo "--> Copying dependencies into Fiji installation"
+
 #(set -x; mvn -Dimagej.app.directory=$FijiDirectory)
 (set -x; mvn scijava:populate-app -Dscijava.app.directory=$FijiDirectory)
 
@@ -95,11 +96,6 @@ echo "--> Removing old joml"
 ls $FijiDirectory/jars
 
 # -- Now that we populated fiji, let's double check that it works --
-
-echo
-echo "--> Installing SciView-Unstable update site for testing"
-Fiji.app/$launcher --update add-update-site $update_site_name https://sites.imagej.net/$update_site_name/
-Fiji.app/$launcher --update update
 
 echo
 echo "--> Testing installation with command: sc.iview.commands.help.About"
