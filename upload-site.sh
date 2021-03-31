@@ -31,7 +31,7 @@ esac
 echo "Found launcher: $launcher"
 
 # upload complete update site
-password=$WIKI_UPLOAD_PASS
+password=$UPDATE_SITE_PASSWORD
 ./$launcher --update edit-update-site $update_site $url "webdav:$webdav_user:$password" .
 ./$launcher --update upload-complete-site --force --force-shadow $update_site
 
