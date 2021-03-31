@@ -1,4 +1,11 @@
-This repository manages the `sciview-ageratum` update site.
+This repository manages the sciview update sites `sciview-ageratum`
+update site.
+
+The latest stable release is `sciview-ageratum`.
+
+Information about the sciview update site strategy is available here https://docs.scenery.graphics/sciview/development/update-sites
+
+### Setting up the latest sciview
 
 1. Run the Fiji Updater (*Help › Update...*, the penultimate entry in the *Help ›* menu)
 
