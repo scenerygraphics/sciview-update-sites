@@ -18,4 +18,5 @@ Information about the sciview update site strategy is available here https://doc
     | sciview-ageratum  | https://sites.imagej.net/sciview-ageratum/ |
     
 4. Activate the newly added *sciview-ageratum* checkbox
+
 5. Click *Apply changes* and restart Fiji
