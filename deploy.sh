@@ -11,5 +11,5 @@ echo
 echo "====== Uploading to sciview-ageratum update site ======"
 cd Fiji.app
 chmod a+x ../upload-site.sh
-../upload-site.sh sciview-ageratum Kharrington
+../upload-site.sh sciview-ageratum sciview-update-sites-ci
 
