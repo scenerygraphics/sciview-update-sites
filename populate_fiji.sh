@@ -181,7 +181,6 @@ do
   esac
 done
 
-
 # -- Now that we populated fiji, let's double check that it works --
 
 echo
