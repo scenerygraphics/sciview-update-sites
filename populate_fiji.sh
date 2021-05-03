@@ -137,6 +137,7 @@ install "net.imagej:imagej-mesh:0.8.1" $FijiDirectory/jars
 
 # -- Get the list of native libraries --
 
+
 # [NB] dependency:list emits G:A:P:C:V but dependency:copy needs G:A:V:P:C.
 echo
 echo "--> Extracting list of native dependencies"
