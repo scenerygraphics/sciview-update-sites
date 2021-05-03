@@ -33,7 +33,13 @@ echo "Found launcher: $launcher"
 # upload complete update site
 password=$UPDATE_SITE_PASSWORD
 ./$launcher --update edit-update-site $update_site $url "webdav:$webdav_user:$password" .
+
+echo "===== Simulating update site upload ====="
+./$launcher --update upload-complete-site --simulate --force --force-shadow $update_site
+echo "===== Updating update site ====="
 ./$launcher --update upload-complete-site --force --force-shadow $update_site
 
+./$launcher --update upload --update-site  $update_site --force-shadow --forget-missing-dependencies "macosx/"
+
 # Upload other launchers
-./$launcher --update upload --update-site  $update_site --force-shadow --forget-missing-dependencies "Contents/MacOS/ImageJ-macosx" "ImageJ-win32.exe" "ImageJ-win64.exe"
+#./$launcher --update upload --update-site  $update_site --force-shadow --forget-missing-dependencies "Contents/MacOS/ImageJ-macosx" "ImageJ-win32.exe" "ImageJ-win64.exe"
