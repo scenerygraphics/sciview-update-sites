@@ -93,8 +93,6 @@ echo "--> Removing slf4j bindings"
 echo "--> Removing old joml"
 (set -x; rm -f $FijiDirectory/jars/joml-1.9.24.jar)
 
-ls $FijiDirectory/jars
-
 # -- Handle natives
 
 # -- Put back jar/gluegen-rt and jar/jogl-all --
@@ -181,6 +179,10 @@ do
       ;;
   esac
 done
+
+# -- Show the contents of the jars directory after we make all the adjustments
+
+ls -R $FijiDirectory/jars
 
 # -- Now that we populated fiji, let's double check that it works --
 
