@@ -95,6 +95,93 @@ echo "--> Removing old joml"
 
 ls $FijiDirectory/jars
 
+# -- Handle natives
+
+# -- Put back jar/gluegen-rt and jar/jogl-all --
+echo
+echo "--> Reinstalling gluegen-rt, jogl-all, jocl, jinput, and ffmpeg"
+gluegenJar=$(echo $FijiDirectory/jars/gluegen-rt-main-*.jar)
+gluegenVersion=$(mid "$gluegenJar" "-" ".jar")
+install "org.jogamp.gluegen:gluegen-rt:$gluegenVersion" $FijiDirectory/jars
+
+joglJar=$(echo $FijiDirectory/jars/jogl-all-main-*.jar)
+joglVersion=$(mid "$joglJar" "-" ".jar")
+install "org.jogamp.jogl:jogl-all:$joglVersion" $FijiDirectory/jars
+
+joclGAV=$(mvn dependency:tree | grep jocl | awk -e '{print $NF}' | cut -d: -f1-4 | sed 's/:jar//g')
+installWithGroupId "$joclGAV" $FijiDirectory/jars
+
+jinputGAV=$(mvn dependency:tree | grep jinput | head -n1 | awk -e '{print $NF}' | cut -d: -f1-4 | sed 's/:jar//g' | sed 's/:compile//g')
+install "$jinputGAV" $FijiDirectory/jars
+installWithGroupId "$jinputGAV:jar:natives-all" $FijiDirectory/jars/win64
+installWithGroupId "$jinputGAV:jar:natives-all" $FijiDirectory/jars/linux64
+installWithGroupId "$jinputGAV:jar:natives-all" $FijiDirectory/jars/macosx
+echo "--> Removing jinput natives from JAR root"
+(set -x; rm -f $FijiDirectory/jars/jinput-*-natives-all.jar)
+
+ffmpegGAV=$(mvn dependency:tree | grep 'ffmpeg:jar' | head -n1 | awk -e '{print $NF}' | cut -d: -f1-4 | sed 's/:jar//g' | sed 's/:compile//g')
+installWithGroupId "$ffmpegGAV" $FijiDirectory/jars
+installWithGroupId "$ffmpegGAV:jar:windows-x86_64" $FijiDirectory/jars/win64
+installWithGroupId "$ffmpegGAV:jar:linux-x86_64" $FijiDirectory/jars/linux64
+installWithGroupId "$ffmpegGAV:jar:macosx-x86_64" $FijiDirectory/jars/macosx
+
+# -- Fix old miglayout 
+
+#rm $FijiDirectory/jars/miglayout-3.7.4-swing.jar
+#install "com.miglayout:miglayout-swing:5.2" $FijiDirectory/jars
+
+# -- Fix imagej-mesh versions with jitpack version clashing (temporary)
+
+rm $FijiDirectory/jars/imagej-mesh-*
+install "net.imagej:imagej-mesh:0.8.1" $FijiDirectory/jars
+
+# -- Get the list of native libraries --
+
+# [NB] dependency:list emits G:A:P:C:V but dependency:copy needs G:A:V:P:C.
+echo
+echo "--> Extracting list of native dependencies"
+natives=$(mvn -B dependency:list |
+  grep natives |
+  sed -e 's/^\[INFO\] *\([^:]*\):\([^:]*\):\([^:]*\):\([^:]*\):\([^:]*\):.*/\1:\2:\5:\3:\4/' |
+  grep -v -- '-\(android\|armv6\|solaris\)' |
+  sort)
+for gavpc in $natives
+do
+  gavp=$(left "$gavpc" ':')
+  gav=$(left "$gavp" ':')
+  ga=$(left "$gav" ':')
+  g=$(left "$ga" ':')
+  a=$(right "$ga" ':')
+  v=$(right "$gav" ':')
+  p=$(right "$gavp" ':')
+  c=$(right "$gavpc" ':')
+  echo
+  echo "[$a-$v-$c]"
+  case "$g" in
+    org.lwjgl|graphics.scenery)
+      deleteNatives "$a"
+      # [NB] Install all architectures manually; only one is a dependency.
+      install "$gavp:natives-windows" $FijiDirectory/jars/win64
+      install "$gavp:natives-macos" $FijiDirectory/jars/macosx
+      install "$gavp:natives-linux" $FijiDirectory/jars/linux64
+      ;;
+    *)
+      deleteNative "$a" "$c"
+      case "$c" in
+        natives-win*-i586) continue ;;
+        natives-win*) platform=win64 ;;
+        natives-linux*-i586) continue ;;
+        natives-linux*) platform=linux64 ;;
+        natives-osx|natives-mac*) platform=macosx ;;
+        natives-all*) continue ;;
+        *) die "Unsupported platform: $c" ;;
+      esac
+      install "$gavpc" "$FijiDirectory/jars/$platform"
+      ;;
+  esac
+done
+
+
 # -- Now that we populated fiji, let's double check that it works --
 
 echo
