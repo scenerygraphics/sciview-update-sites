@@ -38,8 +38,8 @@ echo "===== Simulating update site upload ====="
 ./$launcher --update upload-complete-site --simulate --force --force-shadow $update_site
 echo "===== Updating update site ====="
 ./$launcher --update upload-complete-site --force --force-shadow $update_site
-
-./$launcher --update upload --update-site  $update_site --force-shadow --forget-missing-dependencies "macosx/"
+echo "===== Uploading macosx natives ====="
+./$launcher --update upload --update-site  $update_site --force-shadow --forget-missing-dependencies jars/macosx/*
 
 # Upload other launchers
 #./$launcher --update upload --update-site  $update_site --force-shadow --forget-missing-dependencies "Contents/MacOS/ImageJ-macosx" "ImageJ-win32.exe" "ImageJ-win64.exe"
