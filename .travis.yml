@@ -3,6 +3,8 @@ jdk: openjdk8
 branches:
   only:
   - main
+  - sciview-ageratum
+  - sciview-buttercup
   - "/.*-[0-9]+\\..*/"
 install: true
 script:
