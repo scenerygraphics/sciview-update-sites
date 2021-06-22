@@ -24,6 +24,3 @@ jobs:
         env:
           UPDATE_SITE_USER: ${{ secrets.UPDATE_SITE_USER }}
           UPDATE_SITE_PASS: ${{ secrets.UPDATE_SITE_PASS }}
-#cache:
-#  directories:
-#  - "~/.m2/repository"
