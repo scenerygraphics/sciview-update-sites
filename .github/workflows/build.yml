@@ -9,6 +9,11 @@ jobs:
   update-site-deploy:
     runs-on: openjdk8
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu' # See 'Supported distributions' for available options
+          java-version: '11'
       - run: ".travis/build.sh"
         env:
           UPDATE_SITE_USER: ${{ secrets.UPDATE_SITE_USER }}
