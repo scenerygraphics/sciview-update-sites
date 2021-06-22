@@ -108,8 +108,8 @@
         <scijava.jvm.test.version>${scijava.jvm.version}</scijava.jvm.test.version>
         <scijava.jvm.build.version>[1.8.0-101,)</scijava.jvm.build.version>
 
-        <scenery.version>5de0b1e</scenery.version>
-        <sciview.version>92add67</sciview.version>
+        <scenery.version>96e8a96</scenery.version>
+        <sciview.version>31b4e6d</sciview.version>
 
         <ui-behaviour.version>2.0.3</ui-behaviour.version>
         <imagej-mesh.version>0.8.1</imagej-mesh.version>
