@@ -12,7 +12,8 @@ UPLOAD_TO_UPDATE_SITE=true
 
 # Perform the main build.
 curl -fsLO https://raw.githubusercontent.com/scijava/scijava-scripts/master/travis-build.sh &&
-sh travis-build.sh $encrypted_eb7aa63bf7ac_key $encrypted_eb7aa63bf7ac_iv &&
+sh travis-build.sh &&
+# TODO note that travis-build.sh takes gpg signing keys, but we dont have them yet
 
 # Upload release version to the ImageJ update site.
 if [ "$UPLOAD_TO_UPDATE_SITE" ]

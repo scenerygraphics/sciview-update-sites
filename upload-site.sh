@@ -31,7 +31,7 @@ esac
 echo "Found launcher: $launcher"
 
 # upload complete update site
-password=$UPDATE_SITE_PASSWORD
+password=$UPDATE_SITE_PASS
 ./$launcher --update edit-update-site $update_site $url "webdav:$webdav_user:$password" .
 
 echo "===== Simulating update site upload ====="
