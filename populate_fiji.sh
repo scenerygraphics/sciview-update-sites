@@ -96,6 +96,10 @@ echo "--> Removing old joml"
 echo "--> Removing old Trainable_Segmentation because of imagescience.jar removal"
 (set -x; rm -f $FijiDirectory/plugins/Trainable_Segmentation-*)
 
+echo "--> Removing org.bytedeco.ffmpeg* because it is a duplicate of ffmpeg*"
+(set -x; rm -f $FijiDirectory/plugins/org.bytedeco.ffmpeg*)
+
+
 # -- Handle natives
 
 # -- Put back jar/gluegen-rt and jar/jogl-all --
