@@ -99,6 +99,8 @@ echo "--> Removing old Trainable_Segmentation because of imagescience.jar remova
 echo "--> Removing ffmpeg* because we are adding our ffmpegs and their natives separately"
 (set -x; rm -f $FijiDirectory/jars/ffmpeg*)
 
+echo "--> Removing kotlinx-coroutines-core-1.3.8.jar because it is outdated"
+(set -x; rm -f $FijiDirectory/jars/kotlinx-coroutines-core-1.3.8.jar)
 
 # -- Handle natives
 
