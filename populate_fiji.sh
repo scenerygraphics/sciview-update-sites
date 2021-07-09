@@ -93,6 +93,9 @@ echo "--> Removing slf4j bindings"
 echo "--> Removing old joml"
 (set -x; rm -f $FijiDirectory/jars/joml-1.9.24.jar)
 
+echo "--> Removing old Trainable_Segmentation because of imagescience.jar removal"
+(set -x; rm -f $FijiDirectory/plugins/Trainable_Segmentation-*)
+
 # -- Handle natives
 
 # -- Put back jar/gluegen-rt and jar/jogl-all --
