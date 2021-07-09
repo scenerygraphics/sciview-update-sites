@@ -5,7 +5,7 @@
 #
 # This script generates a local Fiji.app with SciView installed.
 
-update_site_name="sciview-ageratum"
+update_site_name="sciview-buttercup"
 
 # -- Functions --
 
