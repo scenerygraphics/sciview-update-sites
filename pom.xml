@@ -177,7 +177,7 @@
                 <groupId>org.biojava</groupId>
                 <artifactId>biojava-modfinder</artifactId>
               </exclusion>              
-            </exclusions>                        >
+            </exclusions>
         </dependency>
 
     </dependencies>
