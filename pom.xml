@@ -146,16 +146,16 @@
             <version>${sciview.version}</version>
             <exclusions>
               <exclusion>
-                <artifactId>org.biojava</artifactId>
-                <groupId>biojava-core</groupId>
+                <groupId>org.biojava</groupId>
+                <artifactId>biojava-core</artifactId>
               </exclusion>
               <exclusion>
-                <artifactId>org.biojava</artifactId>
-                <groupId>biojava-structure</groupId>
+                <groupId>org.biojava</groupId>
+                <artifactId>biojava-structure</artifactId>
               </exclusion>
               <exclusion>
-                <artifactId>org.biojava</artifactId>
-                <groupId>biojava-modfinder</groupId>
+                <groupId>org.biojava</groupId>
+                <artifactId>biojava-modfinder</artifactId>
               </exclusion>              
             </exclusions>            
         </dependency>
@@ -166,18 +166,18 @@
             <version>${scenery.version}</version>
             <exclusions>
               <exclusion>
-                <artifactId>org.biojava</artifactId>
-                <groupId>biojava-core</groupId>
+                <groupId>org.biojava</groupId>
+                <artifactId>biojava-core</artifactId>
               </exclusion>
               <exclusion>
-                <artifactId>org.biojava</artifactId>
-                <groupId>biojava-structure</groupId>
+                <groupId>org.biojava</groupId>
+                <artifactId>biojava-structure</artifactId>
               </exclusion>
               <exclusion>
-                <artifactId>org.biojava</artifactId>
-                <groupId>biojava-modfinder</groupId>
+                <groupId>org.biojava</groupId>
+                <artifactId>biojava-modfinder</artifactId>
               </exclusion>              
-            </exclusions>
+            </exclusions>                        >
         </dependency>
 
     </dependencies>
