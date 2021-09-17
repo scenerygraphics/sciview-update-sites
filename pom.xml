@@ -144,6 +144,20 @@
             <groupId>sc.iview</groupId>
             <artifactId>sciview</artifactId>
             <version>${sciview.version}</version>
+            <exclusions>
+              <exclusion>
+                <artifactId>org.biojava</artifactId>
+                <groupId>biojava-core</groupId>
+              </exclusion>
+              <exclusion>
+                <artifactId>org.biojava</artifactId>
+                <groupId>biojava-structure</groupId>
+              </exclusion>
+              <exclusion>
+                <artifactId>org.biojava</artifactId>
+                <groupId>biojava-modfinder</groupId>
+              </exclusion>              
+            </exclusions>            
         </dependency>
 
         <dependency>
