@@ -102,6 +102,11 @@ echo "--> Removing ffmpeg* because we are adding our ffmpegs and their natives s
 echo "--> Removing kotlinx-coroutines-core-1.3.8.jar because it is outdated"
 (set -x; rm -f $FijiDirectory/jars/kotlinx-coroutines-core-1.3.8.jar)
 
+echo "--> Fetching correct ImageJ-linux64 launcher"
+wget https://maven.scijava.org/service/local/repositories/snapshots/content/net/imagej/imagej-launcher/6.0.3-SNAPSHOT/imagej-launcher-6.0.3-20201117.205912-15-linux64.exe -O $FijiDirectory/ImageJ-linux64
+chmod +x ImageJ-linux64
+
+
 # -- Handle natives
 
 # -- Put back jar/gluegen-rt and jar/jogl-all --
