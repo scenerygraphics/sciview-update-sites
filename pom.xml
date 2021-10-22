@@ -108,8 +108,8 @@
         <scijava.jvm.test.version>${scijava.jvm.version}</scijava.jvm.test.version>
         <scijava.jvm.build.version>[1.8.0-101,)</scijava.jvm.build.version>
 
-        <scenery.version>9877ce1</scenery.version>
-        <sciview.version>bf8eee3</sciview.version>
+        <scenery.version>be5a289</scenery.version>
+        <sciview.version>a5eebf1</sciview.version>
 
         <kotlin.version>1.5.10</kotlin.version>
         <kotlinx-coroutines-core.version>1.5.0</kotlinx-coroutines-core.version>
