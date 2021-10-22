@@ -30,6 +30,9 @@ esac
 
 echo "Found launcher: $launcher"
 
+wget https://maven.scijava.org/service/local/repositories/snapshots/content/net/imagej/imagej-launcher/6.0.3-SNAPSHOT/imagej-launcher-6.0.3-20201117.205912-15-linux64.exe -O ImageJ-linux64
+chmod +x ImageJ-linux64
+
 # upload complete update site
 password=$UPDATE_SITE_PASS
 ./$launcher --update edit-update-site $update_site $url "webdav:$webdav_user:$password" .
