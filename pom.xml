@@ -109,7 +109,7 @@
         <scijava.jvm.build.version>[1.8.0-101,)</scijava.jvm.build.version>
 
         <scenery.version>4d07a30</scenery.version>
-        <sciview.version>a603690</sciview.version>
+        <sciview.version>e32ebdb</sciview.version>
 
         <kotlin.version>1.5.10</kotlin.version>
         <kotlinx-coroutines-core.version>1.5.0</kotlinx-coroutines-core.version>
