@@ -108,6 +108,8 @@
         <scijava.jvm.test.version>${scijava.jvm.version}</scijava.jvm.test.version>
         <scijava.jvm.build.version>[1.8.0-101,)</scijava.jvm.build.version>
 
+        <imagej-mesh.version>0.8.1</imagej-mesh.version>
+
         <scenery.version>4d07a30</scenery.version>
         <sciview.version>2368764</sciview.version>
 
@@ -139,6 +141,12 @@
     </repositories>
 
     <dependencies>
+
+        <dependency>
+            <groupId>net.imagej</groupId>
+            <artifactId>imagej-mesh</artifactId>
+            <version>${imagej-mesh.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>sc.iview</groupId>
